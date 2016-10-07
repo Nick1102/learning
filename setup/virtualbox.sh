@@ -1,8 +1,8 @@
 
-hange these variables as needed
-VM_NAME="UbuntuServer"
-UBUNTU_ISO_PATH=~/Documents/ubuntu-16.04.1-server-i386.iso
-VM_HD_PATH="UbuntuServer.vdi" # The path to VM hard disk (to be created).
+#change these variables as needed
+VM_NAME="base-ubuntu"
+UBUNTU_ISO_PATH=~/Documents/ubuntu-16.04.1-server-amd64.iso
+VM_HD_PATH="~/VirtualBoxVM/base-ubuntu.vdi" # The path to VM hard disk (to be created).
 SHARED_PATH=~ # Share home directory with the VM
 
 vboxmanage createvm --name $VM_NAME --ostype Ubuntu_64 --register
