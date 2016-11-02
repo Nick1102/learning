@@ -2,11 +2,11 @@
 #change these variables as needed
 VM_NAME="base-ubuntu"
 UBUNTU_ISO_PATH=~/Documents/ubuntu-16.04.1-server-amd64.iso
-VM_HD_PATH="~/VirtualBoxVM/base-ubuntu.vdi" # The path to VM hard disk (to be created).
+VM_HD_PATH=~/Documents/base-ubuntu.vdi # The path to VM hard disk (to be created).
 SHARED_PATH=~ # Share home directory with the VM
 
 vboxmanage createvm --name $VM_NAME --ostype Ubuntu_64 --register
-vboxmanage createhd --filename $VM_NAME.vdi --size 10768
+vboxmanage createhd --filename $VM_HD_PATH --size 10768
 vboxmanage storagectl $VM_NAME --name "SATA Controller" --add sata --controller IntelAHCI
 vboxmanage storageattach $VM_NAME --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium $VM_HD_PATH
 vboxmanage storagectl $VM_NAME --name "IDE Controller" --add ide
