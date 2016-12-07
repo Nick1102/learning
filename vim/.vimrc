@@ -26,7 +26,8 @@ Plug 'slashmili/alchemist.vim'
 Plug 'mileszs/ack.vim'
 
 " Color
-Plug 'tomasr/molokai'
+"Plug 'tomasr/molokai'
+Plug 'dikiaap/minimalist'
 
 "Statusline
 Plug 'vim-airline/vim-airline'
@@ -39,6 +40,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': ['csv', 'xls', 'xlsx'] }
 Plug 'tpope/vim-markdown',         { 'for': 'markdown' }
 Plug 'elixir-lang/vim-elixir'
 Plug 'slim-template/vim-slim'
+Plug 'tpope/vim-endwise'
 
 " Fuzzy Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -46,15 +48,17 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'gregsexton/gitv'
+Plug 'junegunn/gv.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'gregsexton/gitv'
 
 " Others
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neomake/neomake'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
-colorscheme molokai
+colorscheme minimalist
 
 " Display relative line numbers
 set relativenumber
@@ -69,13 +73,15 @@ set textwidth=0
 set wrapmargin=0
 set tabstop=2
 set expandtab
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevelstart=2
 " Search settings
 set ignorecase
 set smartcase
 set incsearch
 set nohlsearch
+" Use system clipboard
+set clipboard=unnamed
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -93,5 +99,15 @@ let g:NERDTreeChDirMode = 2
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
 let g:mundo_prefer_python3 = 1
+let g:tex_fold_enabled=1
+let g:vimsyn_folding='af'
+let g:xml_syntax_folding = 1
+let g:php_folding = 1
+let g:perl_fold = 1
+let g:elixir_fold=1
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources.ruby = ['omni']
+let g:neomake_open_list=2
 
 autocmd! BufWritePost * Neomake
+
