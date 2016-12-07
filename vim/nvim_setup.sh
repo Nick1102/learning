@@ -6,6 +6,7 @@ copy_files()
 
 symlink_nvim()
 {
+    mkdir ~/.config
     ln -s ~/.vimrc ~/.config/nvim/init.vim
     ln -s ~/.vim ~/.config/nvim
     nvim +PlugInstall +qall
