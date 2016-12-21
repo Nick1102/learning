@@ -28,6 +28,8 @@ Plug 'mileszs/ack.vim'
 " Color
 "Plug 'tomasr/molokai'
 Plug 'dikiaap/minimalist'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'KeitaNakamura/neodark.vim'
 
 "Statusline
 Plug 'vim-airline/vim-airline'
@@ -37,10 +39,13 @@ Plug 'vim-ruby/vim-ruby',          { 'for': ['ruby', 'eruby'] }
 Plug 'tpope/vim-rails',            { 'for': ['ruby', 'eruby'] }
 Plug 'nelstrom/vim-markdown-folding',{ 'for': 'markdown' }
 Plug 'dhruvasagar/vim-table-mode', { 'for': ['csv', 'xls', 'xlsx'] }
-Plug 'tpope/vim-markdown',         { 'for': 'markdown' }
+Plug 'tpope/vim-markdown'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-endwise'
+Plug 'c-brenn/phoenix.vim'
+Plug 'tpope/vim-projectionist'
+Plug 'posva/vim-vue'
 
 " Fuzzy Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -56,9 +61,13 @@ Plug 'gregsexton/gitv'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neomake/neomake'
 Plug 'vimwiki/vimwiki'
+Plug 'rhysd/devdocs.vim'
 call plug#end()
 
-colorscheme minimalist
+colorscheme neodark
+if has("termguicolors")
+    set termguicolors
+endif
 
 " Display relative line numbers
 set relativenumber
@@ -72,9 +81,8 @@ set nolist
 set textwidth=0
 set wrapmargin=0
 set tabstop=2
+:set shiftwidth=2
 set expandtab
-set foldmethod=indent
-set foldlevelstart=2
 " Search settings
 set ignorecase
 set smartcase
@@ -91,6 +99,8 @@ nnoremap <C-P> :FZF<CR>
 nnoremap <Leader>a :Ack!<Space>
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 nnoremap <Leader><Leader>u :MundoToggle<CR>
+nnoremap <Leader>dd :DevDocs<Space>
+nnoremap <Leader>DD :DevDocs <C-r><C-w><CR>
 
 let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1
@@ -99,12 +109,6 @@ let g:NERDTreeChDirMode = 2
 let g:surround_45 = "<% \r %>"
 let g:surround_61 = "<%= \r %>"
 let g:mundo_prefer_python3 = 1
-let g:tex_fold_enabled=1
-let g:vimsyn_folding='af'
-let g:xml_syntax_folding = 1
-let g:php_folding = 1
-let g:perl_fold = 1
-let g:elixir_fold=1
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources.ruby = ['omni']
 let g:neomake_open_list=2

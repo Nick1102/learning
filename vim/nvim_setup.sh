@@ -8,6 +8,7 @@ symlink_nvim()
 {
     mkdir ~/.vim
     mkdir ~/.config
+    mkdir ~/.vim/nvim
     ln -s ~/.vimrc ~/.config/nvim/init.vim
     ln -s ~/.vim ~/.config/nvim
     nvim +PlugInstall +qall
