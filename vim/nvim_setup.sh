@@ -8,9 +8,8 @@ symlink_nvim()
 {
     mkdir ~/.vim
     mkdir ~/.config
-    mkdir ~/.vim/nvim
-    ln -s ~/.vimrc ~/.config/nvim/init.vim
     ln -s ~/.vim ~/.config/nvim
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
     nvim +PlugInstall +qall
 }
 
@@ -30,6 +29,7 @@ linux_install()
     sudo apt-get update
     sudo apt-get install -y neovim
     sudo apt-get install -y python-dev python-pip python3-dev python3-pip
+    sudo apt-get install ack-grep
     symlink_nvim
     echo "alias vim='nvim'" >> ~/.bashrc
 }

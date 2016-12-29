@@ -1,0 +1,2 @@
+if facing locale issues over ssh, try commenting out ssh locale forwarding
+Edit /etc/ssh/ssh_config and comment out SendEnv LANG LC_* line.
