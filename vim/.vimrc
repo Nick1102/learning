@@ -30,6 +30,8 @@ Plug 'mileszs/ack.vim'
 Plug 'dikiaap/minimalist'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'AlessandroYorba/Sidonia'
+Plug 'arcticicestudio/nord-vim'
 
 "Statusline
 Plug 'vim-airline/vim-airline'
@@ -46,6 +48,7 @@ Plug 'tpope/vim-endwise'
 Plug 'c-brenn/phoenix.vim'
 Plug 'tpope/vim-projectionist'
 Plug 'posva/vim-vue'
+Plug 'keith/swift.vim'
 
 " Fuzzy Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -62,9 +65,15 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neomake/neomake'
 Plug 'vimwiki/vimwiki'
 Plug 'rhysd/devdocs.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'andyl/vim-projectionist-elixir'
+Plug 'andyl/vim-textobj-elixir'
+Plug 'thoughtbot/vim-rspec'
+Plug 'vim-scripts/ingo-library'
+Plug 'vim-scripts/SyntaxRange'
 call plug#end()
 
-colorscheme neodark
+colorscheme nord
 if has("termguicolors")
     set termguicolors
 endif
@@ -93,6 +102,10 @@ set clipboard=unnamed
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+set foldmethod=syntax
+set foldlevel=1
+
+
 let $FZF_DEFAULT_COMMAND="ack -l ''"
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-P> :FZF<CR>
@@ -101,6 +114,10 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 nnoremap <Leader><Leader>u :MundoToggle<CR>
 nnoremap <Leader>dd :DevDocs<Space>
 nnoremap <Leader>DD :DevDocs <C-r><C-w><CR>
+nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>s :call RunNearestSpec()<CR>
+nnoremap <Leader>l :call RunLastSpec()<CR>
+nnoremap <Leader>a :call RunAllSpecs()<CR>
 
 let g:airline_powerline_fonts = 1
 let g:deoplete#enable_at_startup = 1
@@ -111,7 +128,7 @@ let g:surround_61 = "<%= \r %>"
 let g:mundo_prefer_python3 = 1
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources.ruby = ['omni']
-let g:neomake_open_list=2
+"let g:neomake_open_list=2
 
 autocmd! BufWritePost * Neomake
 
