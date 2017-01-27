@@ -1,0 +1,7 @@
+--ignore-dir=node_modules
+--ignore-dir=deps
+--ignore-dir=.git
+--ignore-dir=.DS_STORE
+--ignore-dir=.deliver
+--ignore-dir=tmp
+
